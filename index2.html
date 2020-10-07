@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+        <!-- formatting -->
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="currentCity">Current City </h1>
+        <p class="lead">Temp</p>
+        <p>Humidty</p>
+        <p class="lead">Wind Speed</p>
+        <p class="lead">
+        <p class="lead">UV Index: <button>index#</button></p>
+        </p>
+        <thead>
+            <tr>
+                <th scope="currentCity"> temp </th>
+            </tr>
+        </thead>
+
+    </div>
+    <div class="card2 col">
+        <div><input placeholder="Search Another Location">
+            <div><textarea id="userinput"></textarea>
+                <input class="add-city" type="submit" value="Submit">
+            
+            </div>
+        </div>
+        <div>
+            <p class="light-text city-area">
+                <!-- <button>Atlanta</button></p>
+            <p class="light-text">
+                <button>Chicago</button></p>
+            <p class="light-text">
+                <button>New York</button></p>
+            <p class="light-text">
+                <button>Orlando</button></p>
+            <p class="light-text">
+                <button>San Francisco</button></p>
+            <p class="light-text">
+                <button>Seattle</button></p>
+            <p class="light-text">
+                <button>Denver</button></p> -->
+                </p>
+
+            <div class="col">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
+                        <p class="card-text">Humidity</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
+                        <p class="card-text">Humidity</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
+                        <p class="card-text">Humidity</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- starting code for date/time
+
+            var curDay = document.querySelector("#currentDay");
+
+            document.querySelector("#currentDay").textContent = moment().format('LLL');
+            var currentTime = moment().format('HH')
+            console.log(currentTime) -->
+
+
+            <!-- Need to get this working, review notes -->
+
+
+
+            <script type="text/javascript">
+                // // Initial array of movies
+                // var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+
+                // // displayMovieInfo function re-renders the HTML to display the appropriate content
+                // function displayMovieInfo() {
+
+                //     var movie = $(this).attr("data-name");
+                //     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q={austin}&appid=&024ddb005de3a7453bb87db856f5f0ec";
+
+                //     // Creating an AJAX call for the specific movie button being clicked
+                 
+                //     $.ajax({
+                //         url: queryURL,
+                //         method: "GET"
+                //     }).then(function (response) {
+
+                //         // Creating a div to hold the movie
+                //         var movieDiv = $("<div class='movie'>");
+
+                //         // Storing the rating data
+                //         var rating = response.Rated;
+
+                //         // Creating an element to have the rating displayed
+                //         var pOne = $("<p>").text("Rating: " + rating);
+
+                //         // Displaying the rating
+                //         movieDiv.append(pOne);
+
+                //         // Storing the release year
+                //         var released = response.Released;
+
+                //         // Creating an element to hold the release year
+                //         var pTwo = $("<p>").text("Released: " + released);
+
+                //         // Displaying the release year
+                //         movieDiv.append(pTwo);
+
+                //         // Storing the plot
+                //         var plot = response.Plot;
+                //     });
+
+                // }
+            </script>
+
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+      <script src="./script.js"></script>
+
+</body>
+
+</html>

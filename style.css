@@ -1,0 +1,46 @@
+body {
+    color: #fff;
+    height: 100%;
+    background-image: linear-gradient(#81D4FA, #2196F3);
+   
+}
+.jumbotron {
+    align-content: center;
+    border-radius: 50%;
+}
+
+
+.large-font {
+    font-size: 70px;
+    font-family: Arial
+}
+
+.card2 {
+    background-color: #607D8B;
+    /* padding: 0px 0px 40px 40px */
+}
+
+input {
+    background-color: #607D8B;
+    padding: 24px 0px 12px 0px ;
+    width: 80%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #CFD8DC;
+    font-size: 16px;
+    color: #fff;
+}
+
+ ::placeholder {
+    color: #B0BEC5 !important;
+    opacity: 1
+}
+
+
+
+
+
+
+
+
+
