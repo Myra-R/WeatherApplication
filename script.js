@@ -4,7 +4,7 @@ var cityArr=[];
 function oneday(city){
     //api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key} // 1 day
 
-    var oneurl="http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apiKey;
+    var oneurl="https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apiKey;
     console.log(oneurl);
     $.ajax({
         url: oneurl,
@@ -18,7 +18,7 @@ function oneday(city){
         $(".hum").text("Humidity: "+response.main.humidity);
         $(".wind").text("Wind Speed: "+response.wind.speed);
  
-        var iconurl = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+        var iconurl = "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
         
         var img=$("<img>");
         img.attr("src", iconurl);
@@ -27,7 +27,7 @@ function oneday(city){
         
         var lon = response.coord.lon
         var lat = response.coord.lat;
-        var uvurl="http://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&appid="+apiKey;
+        var uvurl="https://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&appid="+apiKey;
         console.log(uvurl)
         $.ajax({
             url: uvurl,
@@ -57,7 +57,7 @@ function fiveday(city){
     //run a for loop 5x => each iteration mult i*8 =24hrs
 
     //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key} // 5day
-    var fiveurl="http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+apiKey;
+    var fiveurl="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+apiKey;
     console.log(fiveurl)
     $.ajax({
         url: fiveurl,
@@ -93,7 +93,7 @@ function fiveday(city){
         var h5= $("<h5>");
         h5.attr("class","card-title");
         h5.text(moment(fiveObj.list[i*8].dt_txt).format("LL"))
-        var iconurl2 = "http://openweathermap.org/img/w/" + fiveObj.list[i*8].weather[0].icon + ".png";
+        var iconurl2 = "https://openweathermap.org/img/w/" + fiveObj.list[i*8].weather[0].icon + ".png";
         
         var img2=$("<img>");
         img2.attr("src", iconurl2);
