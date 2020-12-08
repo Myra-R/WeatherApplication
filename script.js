@@ -10,11 +10,21 @@ function oneday(city){
         url: oneurl,
         method: "GET"
     }).then(function (response) {
-        console.log(response.name);
-        console.log(response.main.temp);
-        console.log(response.main.humidity);
-        console.log(response.wind.speed);
-        console.log(response.weather[0].icon);
+
+        //.currentCity
+        $(".currentCity").text(response.name);
+        $(".temp").text("Temp: "+response.main.temp);
+
+        $(".hum").text("Humidity: "+response.main.humidity);
+        $(".wind").text("Wind Speed: "+response.wind.speed);
+ 
+        var iconurl = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+        
+        var img=$("<img>");
+        img.attr("src", iconurl);
+        img.attr("class", "iconimg");
+        $(".icon").append(img);
+        
         var lon = response.coord.lon
         var lat = response.coord.lat;
         var uvurl="http://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&appid="+apiKey;
@@ -24,7 +34,7 @@ function oneday(city){
             method: "GET"
         }).then(function (uvObj) {
             console.log(uvObj)
-            console.log(uvObj.value)
+            $(".uv").text("UV: "+uvObj.value)
 
         });
 
@@ -58,6 +68,55 @@ function fiveday(city){
         console.log(fiveObj.list[i*8].weather[0].icon)
         console.log(fiveObj.list[i*8].main.humidity)
         console.log(moment(fiveObj.list[i*8].dt_txt).format("LL"))
+
+        /**
+         <div class="col">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Temp</h6>
+                        <p class="card-text">Humidity</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+         */
+        var d1= $("<div>");
+        d1.attr("class","col");
+        var d2= $("<div>");
+        d2.attr("class","card text-white bg-primary mb-3");
+        d2.attr("style","max-width: 18rem;")
+        var d3= $("<div>");
+        d3.attr("class","card-body");
+
+        var h5= $("<h5>");
+        h5.attr("class","card-title");
+        h5.text(moment(fiveObj.list[i*8].dt_txt).format("LL"))
+        var iconurl2 = "http://openweathermap.org/img/w/" + fiveObj.list[i*8].weather[0].icon + ".png";
+        
+        var img2=$("<img>");
+        img2.attr("src", iconurl2);
+        img2.attr("class", "iconimg");
+       
+
+        var h6= $("<h6>");
+        h6.attr("class", "card-subtitle mb-2 text-muted");
+        h6.text("Temp: "+fiveObj.list[i*8].main.temp);
+        var p= $("<p>");
+        p.attr("class","card-text");
+        p.text("Humidity: "+fiveObj.list[i*8].main.humidity);
+        d3.append(h5);
+        d3.append(img2)
+        d3.append(h6);
+        d3.append(p);
+        d2.append(d3)
+        d1.append(d2);
+    
+        $(".fivedayreport").append(d1);
+
+
+        //.fivedayreport
         }
  
 
@@ -94,6 +153,24 @@ function renderButtons() {
       // Added the button to the buttons-view div
       $(".city-area").append(a);
     }
+
+    //onclick for .citybtn{
+        $(".citybtn").on("click", function(event) {
+            event.preventDefault();
+         
+           oneday($(this).attr("data-name"));
+           fiveday($(this).attr("data-name"));
+            
+            //grab value of the city
+            //call oneday(city)
+            //console.log($(this).attr("data-name"));
+            //call fiveday()
+    
+    
+        });
+        //call oneday
+        //callfiveday
+    //}
   }
 
 //onclick fx that 
@@ -128,21 +205,7 @@ $(".add-city").on("click", function(event) {
 
 
 
-//onclick for .citybtn{
-    $(".citybtn").on("click", function(event) {
-        event.preventDefault();
-       oneday(city);
-       fiveday(city);
-        
-        //grab value of the city
-        //call oneday(city)
-        //call fiveday()
 
-
-    });
-    //call oneday
-    //callfiveday
-//}
 
 
 
